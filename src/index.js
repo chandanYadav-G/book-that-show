@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }))
 // returning the most recently created booking
 app.get('/api/booking', async (req, res) => {
   try{
-    const booking = await connection.findOne().sort({ _id: -1 })
+    const booking = await connection.findOne().sort({ _id: -1 }) // finding latest booking
     if(!booking)    
       return res.status(200).json({ message: 'no previous booking found' })
     return  res.status(200).json(booking)

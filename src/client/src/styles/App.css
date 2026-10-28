@@ -4,9 +4,7 @@
     color: rgb(0, 0, 0);
     border: 1px rgb(0, 0, 0) ridge;
     padding: 10px 15px;
-    line-height: 1px;
     border-radius: 5px;
-    /* box-shadow: 0 0 5px 5px; */
 }
 
 .movie-row, .seat-row, .slot-row {
@@ -14,14 +12,12 @@
     border: 1px black ridge;
     padding: 10px;
     margin-bottom: 10px;
-    ;
 }
 
 .seat-column {
     min-width: 100px;
     text-align: center;
     padding-bottom: 15px;
-    ;
 }
 
 .book-button button {
@@ -30,18 +26,16 @@
     font-size: 1em;
     color: white;
     background: rgb(44, 209, 88);
-    background: -moz-linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
-    background: -webkit-linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
     background: linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2cd158", endColorstr="#2c6ce0", GradientType=1);
     padding: 5px 15px;
     font-weight: 500;
 }
 
+
 .movie-column-selected, .seat-column-selected, .slot-column-selected {
     background: rgb(211, 115, 115);
-    /* box-shadow: 0 0 5px 5px; */
 }
+
 
 input {
     width: 50px;
@@ -49,11 +43,51 @@ input {
     border-width: 1px;
 }
 
+
 .last-order {
     border-radius: 10px;
     border: 1px black ridge;
     padding: 10px;
     margin-bottom: 10px;
-    margin-right: 10px;
-    ;
+    min-width: 220px;
+    height: fit-content;
+}
+
+
+.page {
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.booking-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+
+.booking-options {
+    flex: 1;
+}
+
+
+.movie-column, .slot-column {
+    cursor: pointer;
+}
+
+
+.booking-message {
+    margin-top: 10px;
+}
+
+
+@media (max-width: 700px) {
+    .booking-layout {
+        display: block;
+    }
+
+    .last-order {
+        margin-top: 20px;
+    }
 }
