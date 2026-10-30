@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react' 
 import '../styles/App.css' 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { movies, slots, seats } from './data' 
+import { movies, slots, seats } from './data'
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || ''
 
 const App = () => {
   // creating an initial zero-ticket count for every available seat category
@@ -22,7 +24,7 @@ const App = () => {
 
   // fetching the latest saved booking once the component mounts
   useEffect(() => {
-    fetch('/api/booking')
+    fetch(`${API_BASE_URL}/api/booking`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Could not get the last booking') 
@@ -86,7 +88,7 @@ const App = () => {
       }, {})
     } 
 
-    fetch('/api/booking', {
+    fetch(`${API_BASE_URL}/api/booking`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(booking)
