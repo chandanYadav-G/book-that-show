@@ -56,7 +56,21 @@ app.post('/api/booking', async (req, res) => {
 
 
 
-app.listen(PORT, async () => {
-  await connectDB() // because we dont want server request before connection starts
-  console.log(`Backend running at http://localhost:${PORT}`) 
-}) 
+// app.listen(PORT, async () => {
+//   await connectDB() // because we dont want server request before connection starts
+//   console.log(`Backend running at http://localhost:${PORT}`) 
+// }) 
+
+const startServer = async () => { // async startServer, connects momgodb first then starts server
+  try {
+    await connectDB()
+    app.listen(PORT, '0.0.0.0', () => { // added 0.0.0.0 host, render accepts https req from public
+      console.log(`Backend running on port ${PORT}`)
+    })
+  } catch (err) {
+    console.error('Failed to start server:', err)
+    process.exit(1)
+  }
+}
+
+startServer()
