@@ -1,16 +1,76 @@
-# React + Vite
+# Book That Show – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A movie ticket booking application built using React and Vite. Users can select movies, choose show timings, enter ticket quantities for different seat categories, and book tickets. The application also displays the latest booking details retrieved from the backend.
 
-Currently, two official plugins are available:
+## Live Application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Frontend: https://book-that-show.vercel.app
 
-## React Compiler
+BackEnd API: https://book-that-show-backend.onrender.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Display available movies.
+- Select a movie and show time.
+- Enter ticket quantities for different seat categories (A1, A2, A3, A4, D1, D2).
+- Book movie tickets.
+- Retrieve and display the latest booking details.
+- Communicate with the backend using HTTP GET and POST requests.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Getting Started
+
+### 1. Clone the repository
+
+git clone https://github.com/chandanYadav-G/book-that-show.git
+
+### 2. Navigate to the frontend directory
+
+cd src/client
+
+### 3. Install dependencies
+
+npm install
+
+### 4. Configure environment variables
+
+Create a `.env` file in the client root directory (alongside `package.json`).
+
+Add the following variable:
+
+VITE_API_URL=https://book-that-show-backend.onrender.com
+
+For local backend development, use your local backend URL instead.
+
+### 5. Start the development server
+
+npm run dev
+
+Vite will provide a local development URL in the terminal.
+
+
+## API Integration
+
+The frontend communicates with the Express backend through the Fetch API.
+
+| GET | `/api/booking` | Retrieves the latest booking details. |
+| POST | `/api/booking` | Creates a new movie ticket booking. |
+
+The API base URL is configured through the `VITE_API_URL` environment variable.
+
+## Deployment
+
+The frontend is deployed on Vercel.
+
+- GitHub repository: https://github.com/chandanYadav-G/book-that-show
+- Deployment platform: Vercel
+- Root directory: `src/client`
+- Framework preset: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+
+The production environment variable `VITE_API_URL` points to the deployed backend on Render.
+
+---
+
+Developed as a fullstack movie booking app
